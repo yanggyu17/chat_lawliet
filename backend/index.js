@@ -1,14 +1,10 @@
-import FS from 'fs'
-import OpenAI from 'openai';
-import express from 'express';
-import cors from 'cors';
-import serverless from 'serverless-http';
-// const OpenAI = require('openai');
-// const express = require('express');
-// const cors = require('cors');
-// const serverless = require('serverless-http');
+const fs = require('fs');
+const OpenAI = require('openai');
+const express = require('express');
+const cors = require('cors');
+const serverless = require('serverless-http');
 
-const text = FS.readFileSync("apikey.txt");
+const text = fs.readFileSync("apikey.txt");
 const apiKey = text.toString();
 
 const app = express()
@@ -84,7 +80,4 @@ app.post('/fortuneTell', async function (req, res) {
   res.json({"assistant": fortune});
 });
 
-//module.exports.handler = serverless(app);
-export const handler = serverless(app);
-
-//app.listen(3000)
+module.exports.handler = serverless(app);
