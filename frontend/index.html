@@ -194,14 +194,14 @@
 
             chatInput.value = '';
 
-            //const response = await fetch('https://hlkcmc7mdq7hxeruy42etoxogu0rwxoj.lambda-url.ap-northeast-2.on.aws/fortuneTell', {
-            const response = await fetch('http://localhost:3000/fortuneTell', {
+            const response = await fetch('https://hlkcmc7mdq7hxeruy42etoxogu0rwxoj.lambda-url.ap-northeast-2.on.aws/fortuneTell', {
+            //const response = await fetch('http://localhost:3000/fortuneTell', {
                 method: 'POST',
                 //mode: 'cors',
                 //credentials: 'include',
                 headers: {
                     //'Access-Control-Allow-Origin': 'https://chat-lawliet.pages.dev',
-                    //'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
@@ -230,7 +230,7 @@
                 link.href = 'https://toss.me/gpting';
                 link.innerHTML = '복채 보내기';
                 gratitudeMessage.appendChild(link);
-                
+
                 const separator = document.createElement('p');
                 separator.classList.add("assistant");
                 astrologerMessage.appendChild(separator);

@@ -27,13 +27,12 @@ let corsOptions = {
   credentials: true
 };
 
-//app.use(cors(corsOptions));
-app.use(cors());
-
 //POST 요청 받을 수 있게 만듬
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+app.use(cors(corsOptions));
+//app.use(cors());
 
 // POST method route
 app.post('/fortuneTell', async function (req, res) {
@@ -73,5 +72,5 @@ app.post('/fortuneTell', async function (req, res) {
   res.json({"assistant": assistantLastMsg, "threadId": threadId});
 });
 
-app.listen(3000)
-//module.exports.handler = serverless(app);
+//app.listen(3000)
+module.exports.handler = serverless(app);
